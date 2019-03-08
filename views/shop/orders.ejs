@@ -1,0 +1,26 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+           <%if(orders.length<=0){%>
+               <h1>Nothing in the Orders!</h1>
+
+            <%}else{%>
+                <%orders.forEach(order=>{%>
+                        
+                        <h1>#<%=order.id%></h1>
+                            <%order.products.forEach(product=>{%>
+                               <h2>Title: <%=product.title%></h2>
+                               <h2>price:<%=product.price%></h2>
+                                  <ul>quantity: <%=product.orderItem.quantity%></ul>
+                                <%})%>
+                                <hr>
+                        <%})%>
+                       
+                
+                <%}%>
+                <button class="btn danger" type="submit" >CheckOut</button> 
+        </main>
+        <%- include('../includes/end.ejs') %>
