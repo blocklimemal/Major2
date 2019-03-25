@@ -7,7 +7,26 @@
             <h1><%= product.title %></h1>
             <hr>
             <div>
-                <img src="<%= product.imageUrl %>" alt="<%= product.title %>" width=400px height =400px >
+
+             <div class="slidercontainer">  
+        <div class="showSlide fade">  
+        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" width=400px height =400px >
+
+        </div>  
+        <div class="showSlide fade">  
+                <img src="<%= product.imageUrl2 %>" alt="<%= product.title %>" width=400px height =400px >
+        </div>  
+  
+        <div class="showSlide fade">  
+                <img src="<%= product.imageUrl3 %>" alt="<%= product.title %>" width=400px height =400px >
+        </div>  
+        <div class="showSlide fade">  
+                <img src="<%= product.imageUrl4 %>" alt="<%= product.title %>" width=400px height =400px >
+        </div>  
+        <!-- Navigation arrows -->  
+        <a class="left" onclick="nextSlide(-1)">❮</a>  
+        <a class="right" onclick="nextSlide(1)">❯</a>  
+    </div>  
             </div>
             <h2><%= product.price %></h2>
             <p><%= product.description %></p>

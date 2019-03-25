@@ -12,7 +12,7 @@ const storage =multer.diskStorage({
 
 });
 
-var upload = multer({storage : storage}).single('imageUrl');
+var upload = multer({storage : storage}).array('imageUrl',4);
 
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {
@@ -37,15 +37,28 @@ exports.postAddProduct = (req, res, next) => {
      // console.log(req.files);
 
       
-    const tempPath = "http://localhost:3000/images/"+req.file.filename;
+    const tempPath1 = "http://localhost:3000/images/"+req.files[0].filename;
+    const tempPath2 = "http://localhost:3000/images/"+req.files[1].filename;
+    const tempPath3 = "http://localhost:3000/images/"+req.files[2].filename;
+    const tempPath4 = "http://localhost:3000/images/"+req.files[3].filename;
+
+
+
   const title = req.body.title;
-  const imageUrl = tempPath;
+  const imageUrl = tempPath1;
+  const imageUrl2 = tempPath2;
+  const imageUrl3 = tempPath3;
+  const imageUrl4 = tempPath4;
   const price = req.body.price;
   const description = req.body.description;
 
  Product.create({
     title:title,
     imageUrl:imageUrl,
+    imageUrl2:imageUrl2,
+    imageUrl3:imageUrl3,
+    imageUrl4:imageUrl4,
+
     price:price,
     description:description,
     userId:req.user.id
@@ -93,11 +106,20 @@ upload(req,res,function(err){
      // console.log(req.files);
 
       
-  const tempPath = "http://localhost:3000/images/"+req.file.filename;
+  const tempPath1= "http://localhost:3000/images/"+req.files[0].filename;
+  const tempPath2= "http://localhost:3000/images/"+req.files[1].filename;
+  const tempPath3= "http://localhost:3000/images/"+req.files[2].filename;
+  const tempPath4= "http://localhost:3000/images/"+req.files[3].filename;
+
+
   const prodId = req.body.productId;
   const updatedTitle = req.body.title;
   const updatedPrice = req.body.price;
-  const updatedImageUrl = tempPath;
+  const updatedImageUrl = tempPath1;
+  const updatedImageUrl2 = tempPath2;
+  const updatedImageUrl3 = tempPath3;
+  const updatedImageUrl4 = tempPath4;
+
   const updatedDesc = req.body.description;
 
 
@@ -105,6 +127,10 @@ Product.findById(prodId).then(product=>{
   product.title = updatedTitle ;
   product.price= updatedPrice ;
   product.imageUrl =updatedImageUrl;
+  product.imageUrl2 =updatedImageUrl2;
+  product.imageUrl3 =updatedImageUrl3;
+  product.imageUrl4 =updatedImageUrl4;
+
   product.description = updatedDesc;
   product.userId = req.user.id;
   return product.save();

@@ -21,6 +21,18 @@
      type:Sequelize.STRING,
      allowNULL:false
    },
+   imageUrl2:{
+     type:Sequelize.STRING,
+     allowNULL:false
+   },
+   imageUrl3:{
+     type:Sequelize.STRING,
+     allowNULL:false
+   },
+   imageUrl4:{
+     type:Sequelize.STRING,
+     allowNULL:false
+   },
 description:{
   type:Sequelize.STRING
 }
