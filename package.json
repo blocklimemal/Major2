@@ -1,14 +1,14 @@
 {
-  "name": "nodejs-complete-guide",
+  "name": "nodejs",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
+  "description": "Nodejs Nith",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "start-server": "node app.js"
   },
-  "author": "Maximilian Schwarzmüller",
+  "author": "Deven",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.3"
